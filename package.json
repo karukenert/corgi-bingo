@@ -4,12 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "run:pocket": "./pocketbase serve",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "prebuild": "rm -rf ./pb_public",
     "preview": "vite preview"
   },
   "dependencies": {
     "firebase": "^9.9.1",
+    "pocketbase": "^0.2.2",
     "vue": "^3.2.37"
   },
   "devDependencies": {

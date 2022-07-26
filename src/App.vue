@@ -1,7 +1,17 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 // @ts-ignore
 import CorgiTable from './components/CorgiTable.vue';
 import TheHeader from './components/TheHeader.vue';
+import PocketBase  from 'pocketbase';
+const client = new PocketBase('http://localhost:8090' );
+
+onMounted(async () => {
+  await client.Admins.authViaEmail("test@test.com", "test");
+  const resultList = await client.Records.getList("corgi_bingo");
+
+  console.log({resultList})
+})
 </script>
 
 
